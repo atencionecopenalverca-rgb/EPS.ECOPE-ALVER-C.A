@@ -9,8 +9,8 @@
     <style>
         /* Fondos y Animaciones Base */
         .map-bg {
-            /* Integración del mapa de Puerto Píritu con el nombre exacto de tu archivo */
-            background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('mapapuertopiritu.jpg');
+            /* Mapa claro, sin atenuación oscura ni gradientes */
+            background-image: url('mapapuertopiritu.jpg');
             background-color: #e5e7eb;
             background-size: cover;
             background-position: center;
@@ -55,6 +55,30 @@
             0%, 80%, 100% { transform: scale(0); }
             40% { transform: scale(1); }
         }
+
+        /* Estilos para el Slider del Simulador */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #10b981;
+            cursor: pointer;
+            margin-top: -8px;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 8px;
+            cursor: pointer;
+            background: #d6d3d1;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body class="bg-stone-50 text-stone-800 smooth-scroll font-sans">
@@ -63,7 +87,7 @@
     <nav id="navbar" class="fixed w-full z-50 top-0 transition-all duration-300 bg-white shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
-                <!-- Logo Eco Peñalver Izquierda (Corregido para formato rectangular) -->
+                <!-- Logo Eco Peñalver Izquierda -->
                 <div class="flex-shrink-0 flex items-center gap-3">
                     <img src="logoecopeñalver.jpg" alt="Logo Eco Peñalver" class="h-12 object-contain bg-white">
                 </div>
@@ -72,11 +96,12 @@
                 <div class="hidden md:flex space-x-6 items-center">
                     <a href="#inicio" class="text-stone-600 hover:text-emerald-600 font-semibold transition">Inicio</a>
                     <a href="#identidad" class="text-stone-600 hover:text-emerald-600 font-semibold transition">Quiénes Somos</a>
-                    <a href="#rutas" class="text-stone-600 hover:text-emerald-600 font-semibold transition">Rutas Interactivas</a>
+                    <a href="#rutas" class="text-stone-600 hover:text-emerald-600 font-semibold transition">Rutas</a>
+                    <a href="#simulador" class="text-stone-600 hover:text-emerald-600 font-semibold transition">Simulador</a>
                     <a href="#contacto" class="bg-emerald-600 text-white px-6 py-2 rounded-full font-bold hover:bg-emerald-700 transition shadow-lg hover:shadow-emerald-500/30 transform hover:-translate-y-0.5">Solicitudes</a>
                 </div>
 
-                <!-- Logo Alcaldía Derecha (Corregido para formato rectangular) -->
+                <!-- Logo Alcaldía Derecha -->
                 <div class="flex-shrink-0 flex items-center">
                     <img src="logoalcaldia.jpg" alt="Logo Alcaldía" class="h-12 object-contain bg-white">
                 </div>
@@ -84,7 +109,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section con Efecto Blur en el Fondo y nombre de archivo actualizado -->
+    <!-- Hero Section con Efecto Blur en el Fondo -->
     <section id="inicio" class="relative h-screen flex items-center justify-center text-center pt-20 overflow-hidden">
         <!-- Capa de imagen de fondo con blur -->
         <div class="absolute inset-0 bg-cover bg-center bg-fixed transform scale-110" style="background-image: url('portadaecopeñalver.jfif'); filter: blur(6px);"></div>
@@ -213,13 +238,11 @@
                     </button>
                 </div>
 
-                <!-- Display Visual del Mapa -->
-                <div class="lg:w-2/3 map-bg rounded-3xl shadow-2xl relative overflow-hidden min-h-[400px] border-4 border-white flex items-center justify-center">
-                    <!-- Overlay Oscuro -->
-                    <div class="absolute inset-0 bg-stone-900/60 backdrop-blur-[2px] transition-all duration-500" id="map-overlay"></div>
+                <!-- Display Visual del Mapa (Ahora totalmente claro) -->
+                <div class="lg:w-2/3 map-bg rounded-3xl shadow-2xl relative overflow-hidden min-h-[400px] border-4 border-white flex items-center justify-center p-4">
                     
-                    <!-- Tarjeta de Información Dinámica -->
-                    <div class="relative z-10 bg-white/95 backdrop-blur-md p-8 md:p-10 rounded-2xl shadow-2xl max-w-lg w-11/12 transform transition-all duration-500" id="route-card">
+                    <!-- Tarjeta de Información Dinámica con efecto cristal fuerte para que se lea bien sobre el mapa claro -->
+                    <div class="relative z-10 bg-white/95 backdrop-blur-xl p-8 md:p-10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] max-w-lg w-full transform transition-all duration-500 border border-white/50" id="route-card">
                         <div class="flex items-center gap-4 mb-6 border-b border-stone-200 pb-4">
                             <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-xl shadow-inner">
                                 <i class="fa-solid fa-truck-arrow-right"></i>
@@ -227,9 +250,94 @@
                             <h3 class="text-3xl font-extrabold text-stone-800" id="route-title">Rutas del Lunes</h3>
                         </div>
                         <div id="route-content" class="space-y-4 text-stone-700">
-                            <p><strong class="text-emerald-700 bg-emerald-50 px-2 py-1 rounded">Turno Mañana:</strong><br> Campo Lindo 3 y transversales, Flamingo y transversales, Campo Lindo 1 y 2. Casco Central, Plaza Bolívar, Boulevard, Bote, CDI, ABEYYU, UNEFA, Mercado Municipal.</p>
-                            <p><strong class="text-stone-700 bg-stone-200 px-2 py-1 rounded">Turno Tarde/Noche:</strong><br> Zona Comercial, Casco Central, Bote, Avenidas Principales.</p>
+                            <p><strong class="text-emerald-700 bg-emerald-50 px-2 py-1 rounded border border-emerald-100">Turno Mañana:</strong><br> Campo Lindo 3 y transversales, Flamingo y transversales, Campo Lindo 1 y 2. Casco Central, Plaza Bolívar, Boulevard, Bote, CDI, ABEYYU, UNEFA, Mercado Municipal.</p>
+                            <p><strong class="text-stone-700 bg-stone-100 px-2 py-1 rounded border border-stone-200">Turno Tarde/Noche:</strong><br> Zona Comercial, Casco Central, Bote, Avenidas Principales.</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guía del Buen Ciudadano -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-extrabold text-emerald-800 mb-4">Guía del Buen Ciudadano</h2>
+            <p class="text-stone-600 mb-12 max-w-2xl mx-auto">La limpieza de nuestro municipio es responsabilidad de todos. Sigue estos sencillos consejos para apoyar el saneamiento ambiental.</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="p-6 bg-stone-50 rounded-xl border border-stone-100 shadow-sm hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-stone-800 mb-2">Respeta los Horarios</h4>
+                    <p class="text-stone-600 text-sm">Saca la basura únicamente en los días y turnos (mañana o noche) asignados a tu ruta.</p>
+                </div>
+                <div class="p-6 bg-stone-50 rounded-xl border border-stone-100 shadow-sm hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                        <i class="fa-solid fa-box-archive"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-stone-800 mb-2">Cierra bien tus bolsas</h4>
+                    <p class="text-stone-600 text-sm">Asegúrate de que las bolsas estén bien amarradas para evitar derrames y malos olores en la vía pública.</p>
+                </div>
+                <div class="p-6 bg-stone-50 rounded-xl border border-stone-100 shadow-sm hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                        <i class="fa-solid fa-ban"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-stone-800 mb-2">No botes escombros</h4>
+                    <p class="text-stone-600 text-sm">Evita arrojar escombros o ramas grandes en las avenidas. Utiliza el portal de solicitudes para recolecciones especiales.</p>
+                </div>
+                <div class="p-6 bg-stone-50 rounded-xl border border-stone-100 shadow-sm hover:-translate-y-2 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                        <i class="fa-solid fa-recycle"></i>
+                    </div>
+                    <h4 class="font-bold text-lg text-stone-800 mb-2">Aplica las 6 R</h4>
+                    <p class="text-stone-600 text-sm">Reducir, Reutilizar, Reciclar, Recuperar, Reeducar y Reinsertar. Ayudemos juntos al planeta.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NUEVA SECCIÓN INTERACTIVA: Simulador Ecológico -->
+    <section id="simulador" class="py-24 bg-emerald-50 border-t border-b border-emerald-100">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in-up">
+                <h2 class="text-3xl font-extrabold text-emerald-900 sm:text-4xl">Simulador de Impacto Ambiental</h2>
+                <p class="mt-4 text-lg text-stone-600">Descubre cómo tu aporte individual mejora nuestro municipio.</p>
+                <div class="w-24 h-1.5 bg-gradient-to-r from-emerald-400 to-emerald-600 mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-emerald-100 fade-in-up flex flex-col lg:flex-row gap-12 items-center">
+                <!-- Control -->
+                <div class="w-full lg:w-1/2">
+                    <h3 class="text-xl font-bold text-stone-800 mb-4"><i class="fa-solid fa-hand-holding-droplet text-emerald-500 mr-2"></i> ¿Cuántas bolsas de reciclaje separas al mes?</h3>
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="text-stone-500 font-bold">0</span>
+                        <input type="range" id="recycle-slider" min="0" max="50" value="10" oninput="calculateImpact()">
+                        <span class="text-stone-500 font-bold">50+</span>
+                    </div>
+                    <div class="text-center bg-stone-50 py-3 rounded-xl border border-stone-200">
+                        <span class="text-3xl font-black text-emerald-600" id="slider-value">10</span> <span class="text-stone-600 font-medium">Bolsas/Mes</span>
+                    </div>
+                    <p class="text-sm text-stone-500 mt-4 text-center">Desliza la barra para ver el impacto positivo que generas al aplicar las políticas de las 6 R impulsadas por EPS Eco Peñalver.</p>
+                </div>
+
+                <!-- Resultados -->
+                <div class="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 text-center transform transition duration-300 hover:scale-105">
+                        <i class="fa-solid fa-droplet text-3xl text-blue-500 mb-3"></i>
+                        <h4 class="text-stone-600 font-semibold mb-1">Agua Ahorrada</h4>
+                        <p class="text-2xl font-black text-blue-700"><span id="water-saved">150</span> L</p>
+                    </div>
+                    <div class="bg-yellow-50 p-6 rounded-2xl border border-yellow-100 text-center transform transition duration-300 hover:scale-105">
+                        <i class="fa-solid fa-bolt text-3xl text-yellow-500 mb-3"></i>
+                        <h4 class="text-stone-600 font-semibold mb-1">Energía Ahorrada</h4>
+                        <p class="text-2xl font-black text-yellow-700"><span id="energy-saved">30</span> kWh</p>
+                    </div>
+                    <div class="bg-green-50 p-6 rounded-2xl border border-green-100 text-center sm:col-span-2 transform transition duration-300 hover:scale-105">
+                        <i class="fa-solid fa-cloud text-3xl text-green-500 mb-3"></i>
+                        <h4 class="text-stone-600 font-semibold mb-1">Reducción de Huella de Carbono (CO2)</h4>
+                        <p class="text-3xl font-black text-green-700"><span id="co2-saved">25</span> kg</p>
                     </div>
                 </div>
             </div>
@@ -238,7 +346,6 @@
 
     <!-- Portal de Solicitudes (Contacto) -->
     <section id="contacto" class="py-24 bg-stone-900 text-white relative overflow-hidden">
-        <!-- Decoración de fondo -->
         <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-emerald-600/20 rounded-full blur-3xl"></div>
         <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-96 h-96 bg-emerald-900/40 rounded-full blur-3xl"></div>
         
@@ -307,7 +414,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center gap-10">
                 
-                <!-- Logo Eco Peñalver (Corregido) -->
+                <!-- Logo Eco Peñalver -->
                 <div class="flex items-center gap-4">
                     <img src="logoecopeñalver.jpg" alt="Logo Eco Peñalver" class="h-16 object-contain bg-white">
                     <div class="text-left">
@@ -325,7 +432,7 @@
                     </a>
                 </div>
 
-                <!-- Logo Alcaldía (Corregido) -->
+                <!-- Logo Alcaldía -->
                 <div class="flex items-center gap-4">
                     <div class="text-right hidden sm:block">
                         <h4 class="font-bold text-blue-900 text-2xl tracking-tight">Alcaldía</h4>
@@ -380,7 +487,7 @@
             </div>
         </div>
 
-        <!-- Indicador de escritura (Oculto por defecto) -->
+        <!-- Indicador de escritura -->
         <div id="typing-indicator" class="hidden px-14 py-2 bg-stone-50/50">
             <div class="bg-white border border-stone-100 shadow-sm p-3 rounded-2xl rounded-tl-none inline-block">
                 <div class="typing-indicator flex gap-1"><span></span><span></span><span></span></div>
@@ -404,13 +511,13 @@
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                         
-                        // Si es un contador, animarlo
+                        // Animación contadores
                         if(entry.target.querySelector('.counter')) {
                             const counters = entry.target.querySelectorAll('.counter');
                             counters.forEach(counter => {
                                 const target = +counter.getAttribute('data-target');
-                                const duration = 2000; // 2 segundos
-                                const increment = target / (duration / 16); // 60fps
+                                const duration = 2000;
+                                const increment = target / (duration / 16);
                                 
                                 let current = 0;
                                 const updateCounter = () => {
@@ -435,22 +542,20 @@
 
         // Lógica del Mapa Interactivo de Rutas
         const routeData = {
-            lunes: { title: 'Rutas del Lunes', desc: '<strong class="text-emerald-700 bg-emerald-50 px-2 py-1 rounded">Mañana:</strong><br> Campo Lindo 3 y transversales, Flamingo y transversales, Campo Lindo 1 y 2. Casco Central, Plaza Bolívar, Boulevard, Bote, CDI, ABEYYU, UNEFA, Mercado Municipal.<br><br><strong class="text-stone-700 bg-stone-200 px-2 py-1 rounded">Tarde/Noche:</strong><br> Zona Comercial, Casco Central, Bote, Avenidas.' },
-            martes: { title: 'Rutas del Martes', desc: '<strong class="text-emerald-700 bg-emerald-50 px-2 py-1 rounded">Mañana:</strong><br> Parcelamiento, La Poza I, Cerro la Pava, La Colina, Sector Peñalver. Av. Principales, Casco Central, Plaza Bolívar, Mercado Municipal. Campo Mar, Zona Industrial, SEVEN, ECO INN, Arturos, Botalón.' },
-            miercoles: { title: 'Rutas del Miércoles', desc: '<strong class="text-emerald-700 bg-emerald-50 px-2 py-1 rounded">Mañana:</strong><br> Calle Zaraza, Potentini, Abogados, Los Olivos, La Matanza, Las Palmas, La Poza II, Los Curas, Primero de Mayo. Hospital Rolingson, Colegios, Residencias Militares.<br><br><strong class="text-stone-700 bg-stone-200 px-2 py-1 rounded">Tarde/Noche:</strong><br> Comercios, Casco Central, Mercado Municipal.' },
-            jueves: { title: 'Rutas del Jueves', desc: '<strong class="text-emerald-700 bg-emerald-50 px-2 py-1 rounded">Mañana:</strong><br> Condominios Santa Rosa, Anicasio Medina, Los Apamates. Costa del Sol #1 y #2, Arboleda, La Floresta, La Melania, La Auténtica, Pachaquito.<br><br><strong class="text-stone-700 bg-stone-200 px-2 py-1 rounded">Tarde/Noche:</strong><br> Zona Comercial y Casco Central.' },
-            viernes: { title: 'Rutas del Viernes', desc: '<strong class="text-emerald-700 bg-emerald-50 px-2 py-1 rounded">Mañana:</strong><br> Buenos Aires, Sector La Planta, Mochima, Isla Bonita, Costa Marfil, Puerto Delfin, Roma, Puinare, Urb. Hugo Chávez.<br><br><strong class="text-stone-700 bg-stone-200 px-2 py-1 rounded">Tarde/Noche:</strong><br> Zona Comercial, Av. Principales.' },
-            finsemana: { title: 'Sábado y Domingo', desc: '<strong class="text-emerald-700 bg-emerald-50 px-2 py-1 rounded">Sábado:</strong><br> Residencias Pioneros, Los Roques, Los Corales, Nuevo Unare, La Cerca, El Hatillo. Tarde: Comercios, Casco Central.<br><br><strong class="text-stone-700 bg-stone-200 px-2 py-1 rounded">Domingo:</strong><br> Zona Centro (Comercios, Casco Central, Mercado Municipal).' }
+            lunes: { title: 'Rutas del Lunes', desc: '<strong class="text-emerald-700 bg-emerald-50 px-2 py-1 rounded border border-emerald-100">Turno Mañana:</strong><br> Campo Lindo 3 y transversales, Flamingo y transversales, Campo Lindo 1 y 2. Casco Central, Plaza Bolívar, Boulevard, Bote, CDI, ABEYYU, UNEFA, Mercado Municipal.<br><br><strong class="text-stone-700 bg-stone-100 px-2 py-1 rounded border border-stone-200">Turno Tarde/Noche:</strong><br> Zona Comercial, Casco Central, Bote, Avenidas.' },
+            martes: { title: 'Rutas del Martes', desc: '<strong class="text-emerald-700 bg-emerald-50 px-2 py-1 rounded border border-emerald-100">Turno Mañana:</strong><br> Parcelamiento, La Poza I, Cerro la Pava, La Colina, Sector Peñalver. Av. Principales, Casco Central, Plaza Bolívar, Mercado Municipal. Campo Mar, Zona Industrial, SEVEN, ECO INN, Arturos, Botalón.' },
+            miercoles: { title: 'Rutas del Miércoles', desc: '<strong class="text-emerald-700 bg-emerald-50 px-2 py-1 rounded border border-emerald-100">Turno Mañana:</strong><br> Calle Zaraza, Potentini, Abogados, Los Olivos, La Matanza, Las Palmas, La Poza II, Los Curas, Primero de Mayo. Hospital Rolingson, Colegios, Residencias Militares.<br><br><strong class="text-stone-700 bg-stone-100 px-2 py-1 rounded border border-stone-200">Turno Tarde/Noche:</strong><br> Comercios, Casco Central, Mercado Municipal.' },
+            jueves: { title: 'Rutas del Jueves', desc: '<strong class="text-emerald-700 bg-emerald-50 px-2 py-1 rounded border border-emerald-100">Turno Mañana:</strong><br> Condominios Santa Rosa, Anicasio Medina, Los Apamates. Costa del Sol #1 y #2, Arboleda, La Floresta, La Melania, La Auténtica, Pachaquito.<br><br><strong class="text-stone-700 bg-stone-100 px-2 py-1 rounded border border-stone-200">Turno Tarde/Noche:</strong><br> Zona Comercial y Casco Central.' },
+            viernes: { title: 'Rutas del Viernes', desc: '<strong class="text-emerald-700 bg-emerald-50 px-2 py-1 rounded border border-emerald-100">Turno Mañana:</strong><br> Buenos Aires, Sector La Planta, Mochima, Isla Bonita, Costa Marfil, Puerto Delfin, Roma, Puinare, Urb. Hugo Chávez.<br><br><strong class="text-stone-700 bg-stone-100 px-2 py-1 rounded border border-stone-200">Turno Tarde/Noche:</strong><br> Zona Comercial, Av. Principales.' },
+            finsemana: { title: 'Sábado y Domingo', desc: '<strong class="text-emerald-700 bg-emerald-50 px-2 py-1 rounded border border-emerald-100">Sábado:</strong><br> Residencias Pioneros, Los Roques, Los Corales, Nuevo Unare, La Cerca, El Hatillo. Tarde: Comercios, Casco Central.<br><br><strong class="text-stone-700 bg-stone-100 px-2 py-1 rounded border border-stone-200">Domingo:</strong><br> Zona Centro (Comercios, Casco Central, Mercado Municipal).' }
         };
 
         function changeRoute(day, btnElement) {
-            // Actualizar botones
             document.querySelectorAll('.route-btn').forEach(btn => {
                 btn.className = "route-btn w-full text-left px-6 py-4 rounded-2xl font-bold text-lg bg-white text-stone-600 hover:bg-emerald-50 border border-stone-200 transition-all duration-300";
             });
             btnElement.className = "route-btn w-full text-left px-6 py-4 rounded-2xl font-bold text-lg transition-all duration-300 bg-emerald-600 text-white shadow-lg transform scale-105 border-l-4 border-emerald-300";
 
-            // Animación del panel de la ruta
             const card = document.getElementById('route-card');
             const title = document.getElementById('route-title');
             const content = document.getElementById('route-content');
@@ -464,6 +569,21 @@
                 card.style.opacity = '1';
                 card.style.transform = 'scale(1)';
             }, 300);
+        }
+
+        // Lógica del Simulador Interactivo
+        function calculateImpact() {
+            const bags = document.getElementById('recycle-slider').value;
+            document.getElementById('slider-value').innerText = bags;
+            
+            // Cálculos estimados ambientales
+            const water = bags * 15; // 15L ahorrados por bolsa aprox
+            const energy = bags * 3; // 3 kWh ahorrados aprox
+            const co2 = (bags * 2.5).toFixed(1); // 2.5kg de CO2 ahorrados
+
+            document.getElementById('water-saved').innerText = water;
+            document.getElementById('energy-saved').innerText = energy;
+            document.getElementById('co2-saved').innerText = co2;
         }
 
         // Lógica del Chatbot Inteligente
@@ -480,7 +600,6 @@
             const chatBox = document.getElementById('chat-messages');
             const typingIndicator = document.getElementById('typing-indicator');
             
-            // Renderizar mensaje del usuario
             const userMsgHtml = `
                 <div class="flex gap-3 justify-end">
                     <div class="bg-emerald-600 text-white p-4 rounded-2xl rounded-tr-none shadow-md text-[15px] leading-relaxed max-w-[85%]">
@@ -492,18 +611,15 @@
             input.value = '';
             chatBox.scrollTop = chatBox.scrollHeight;
             
-            // Mostrar "escribiendo..."
             typingIndicator.classList.remove('hidden');
             chatBox.scrollTop = chatBox.scrollHeight;
 
-            // Procesamiento de lenguaje natural básico (RegEx)
             setTimeout(() => {
                 typingIndicator.classList.add('hidden');
                 
                 const lowerMsg = message.toLowerCase();
                 let reply = "";
 
-                // Condiciones de Respuesta (Intents)
                 if (/(empleo|trabajo|trabajar|vacante|currículum|curriculum|cv)/i.test(lowerMsg)) {
                     reply = "¡Qué bueno que quieras formar parte de nuestro equipo! 🤝 Por favor, envía tu currículum actualizado a nuestro correo oficial: <strong>atencionecopenalverca@gmail.com</strong> indicando tu área de experiencia.";
                 } 
@@ -532,11 +648,9 @@
                     reply = "¡Gracias a ti! Nuestro equipo de Eco Peñalver trabaja a diario para mantener nuestro municipio hermoso. ¡Estamos a la orden!";
                 }
                 else {
-                    // Respuesta por defecto
                     reply = "No estoy totalmente seguro de entender. 🤔 Sin embargo, si tienes alguna solicitud específica, queja o requerimiento, te invito a usar el <strong>Portal de Solicitudes</strong> al final de esta página, o escribirnos a <strong>atencionecopenalverca@gmail.com</strong>.";
                 }
 
-                // Renderizar respuesta del bot
                 const botMsgHtml = `
                     <div class="flex gap-3">
                         <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 mt-1"><i class="fa-solid fa-leaf"></i></div>
@@ -546,7 +660,7 @@
                     </div>`;
                 chatBox.insertAdjacentHTML('beforeend', botMsgHtml);
                 chatBox.scrollTop = chatBox.scrollHeight;
-            }, 1200); // Retraso para simular que está "escribiendo"
+            }, 1200); 
         }
     </script>
 </body>
