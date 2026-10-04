@@ -9,8 +9,8 @@
     <style>
         /* Fondos y Animaciones Base */
         .map-bg {
-            /* Integración del mapa de Puerto Píritu */
-            background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('mapa Puerto Píritu.jpg');
+            /* Integración del mapa de Puerto Píritu con el nombre exacto de tu archivo */
+            background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('mapapuertopiritu.jpg');
             background-color: #e5e7eb;
             background-size: cover;
             background-position: center;
@@ -63,10 +63,9 @@
     <nav id="navbar" class="fixed w-full z-50 top-0 transition-all duration-300 bg-white shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
-                <!-- Logo Eco Peñalver Izquierda -->
+                <!-- Logo Eco Peñalver Izquierda (Corregido para formato rectangular) -->
                 <div class="flex-shrink-0 flex items-center gap-3">
-                    <img src="logoecopeñalver.jpg" alt="Logo Eco Peñalver" class="w-12 h-12 rounded-full object-cover border-2 border-emerald-600 shadow-inner bg-white">
-                    <span class="font-bold text-xl text-emerald-800 hidden sm:block tracking-tight">EPS Eco Peñalver C.A.</span>
+                    <img src="logoecopeñalver.jpg" alt="Logo Eco Peñalver" class="h-12 object-contain bg-white">
                 </div>
                 
                 <!-- Desktop Menu -->
@@ -77,18 +76,18 @@
                     <a href="#contacto" class="bg-emerald-600 text-white px-6 py-2 rounded-full font-bold hover:bg-emerald-700 transition shadow-lg hover:shadow-emerald-500/30 transform hover:-translate-y-0.5">Solicitudes</a>
                 </div>
 
-                <!-- Logo Alcaldía Derecha -->
+                <!-- Logo Alcaldía Derecha (Corregido para formato rectangular) -->
                 <div class="flex-shrink-0 flex items-center">
-                    <img src="logoalcaldia.jpg" alt="Logo Alcaldía" class="w-12 h-12 rounded-full object-cover border-2 border-blue-600 shadow-inner bg-white">
+                    <img src="logoalcaldia.jpg" alt="Logo Alcaldía" class="h-12 object-contain bg-white">
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section con Efecto Blur en el Fondo -->
+    <!-- Hero Section con Efecto Blur en el Fondo y nombre de archivo actualizado -->
     <section id="inicio" class="relative h-screen flex items-center justify-center text-center pt-20 overflow-hidden">
         <!-- Capa de imagen de fondo con blur -->
-        <div class="absolute inset-0 bg-cover bg-center bg-fixed transform scale-110" style="background-image: url('portada.jpg'); filter: blur(6px);"></div>
+        <div class="absolute inset-0 bg-cover bg-center bg-fixed transform scale-110" style="background-image: url('portadaecopeñalver.jfif'); filter: blur(6px);"></div>
         
         <!-- Capa de oscurecimiento para legibilidad -->
         <div class="absolute inset-0 bg-emerald-900/60"></div>
@@ -217,7 +216,7 @@
                 <!-- Display Visual del Mapa -->
                 <div class="lg:w-2/3 map-bg rounded-3xl shadow-2xl relative overflow-hidden min-h-[400px] border-4 border-white flex items-center justify-center">
                     <!-- Overlay Oscuro -->
-                    <div class="absolute inset-0 bg-stone-900/40 backdrop-blur-[1px] transition-all duration-500" id="map-overlay"></div>
+                    <div class="absolute inset-0 bg-stone-900/60 backdrop-blur-[2px] transition-all duration-500" id="map-overlay"></div>
                     
                     <!-- Tarjeta de Información Dinámica -->
                     <div class="relative z-10 bg-white/95 backdrop-blur-md p-8 md:p-10 rounded-2xl shadow-2xl max-w-lg w-11/12 transform transition-all duration-500" id="route-card">
@@ -308,8 +307,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center gap-10">
                 
+                <!-- Logo Eco Peñalver (Corregido) -->
                 <div class="flex items-center gap-4">
-                    <img src="logoecopeñalver.jpg" alt="Logo Eco Peñalver" class="w-16 h-16 rounded-full object-cover border-2 border-emerald-600 shadow-inner bg-white">
+                    <img src="logoecopeñalver.jpg" alt="Logo Eco Peñalver" class="h-16 object-contain bg-white">
                     <div class="text-left">
                         <h4 class="font-bold text-emerald-900 text-2xl tracking-tight">EPS Eco Peñalver C.A.</h4>
                         <p class="text-emerald-600 font-medium text-sm tracking-widest uppercase">Saneamiento Ambiental</p>
@@ -325,12 +325,13 @@
                     </a>
                 </div>
 
+                <!-- Logo Alcaldía (Corregido) -->
                 <div class="flex items-center gap-4">
                     <div class="text-right hidden sm:block">
                         <h4 class="font-bold text-blue-900 text-2xl tracking-tight">Alcaldía</h4>
                         <p class="text-blue-600 font-medium text-sm tracking-widest uppercase">Fernando de Peñalver</p>
                     </div>
-                    <img src="logoalcaldia.jpg" alt="Logo Alcaldía" class="w-16 h-16 rounded-full object-cover border-2 border-blue-600 shadow-inner bg-white">
+                    <img src="logoalcaldia.jpg" alt="Logo Alcaldía" class="h-16 object-contain bg-white">
                 </div>
 
             </div>
@@ -379,7 +380,7 @@
             </div>
         </div>
 
-        <!-- Indicador de escritura -->
+        <!-- Indicador de escritura (Oculto por defecto) -->
         <div id="typing-indicator" class="hidden px-14 py-2 bg-stone-50/50">
             <div class="bg-white border border-stone-100 shadow-sm p-3 rounded-2xl rounded-tl-none inline-block">
                 <div class="typing-indicator flex gap-1"><span></span><span></span><span></span></div>
@@ -388,7 +389,7 @@
 
         <!-- Input -->
         <div class="p-4 bg-white border-t border-stone-100 flex gap-2">
-            <input type="text" id="chat-input" placeholder="Escribe tu pregunta aquí..." class="flex-1 px-4 py-3 bg-stone-100 border-none rounded-xl text-[15px] focus:outline-none focus:ring-2 focus:ring-emerald-500 transition" onkeypress="if(event.key === 'Enter') sendMessage()">
+            <input type="text" id="chat-input" placeholder="Escribe tu pregunta aquí..." class="flex-1 px-4 py-3 bg-stone-100 border-none rounded-xl text-[15px] focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition" onkeypress="if(event.key === 'Enter') sendMessage()">
             <button onclick="sendMessage()" class="bg-emerald-600 text-white w-12 h-12 rounded-xl hover:bg-emerald-700 transition shadow-md flex items-center justify-center transform hover:scale-105">
                 <i class="fa-solid fa-paper-plane"></i>
             </button>
@@ -396,19 +397,20 @@
     </div>
 
     <script>
-        // Animaciones al hacer Scroll
+        // Animaciones al hacer Scroll (Dynamism)
         document.addEventListener('DOMContentLoaded', () => {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                         
+                        // Si es un contador, animarlo
                         if(entry.target.querySelector('.counter')) {
                             const counters = entry.target.querySelectorAll('.counter');
                             counters.forEach(counter => {
                                 const target = +counter.getAttribute('data-target');
-                                const duration = 2000;
-                                const increment = target / (duration / 16);
+                                const duration = 2000; // 2 segundos
+                                const increment = target / (duration / 16); // 60fps
                                 
                                 let current = 0;
                                 const updateCounter = () => {
@@ -442,11 +444,13 @@
         };
 
         function changeRoute(day, btnElement) {
+            // Actualizar botones
             document.querySelectorAll('.route-btn').forEach(btn => {
                 btn.className = "route-btn w-full text-left px-6 py-4 rounded-2xl font-bold text-lg bg-white text-stone-600 hover:bg-emerald-50 border border-stone-200 transition-all duration-300";
             });
             btnElement.className = "route-btn w-full text-left px-6 py-4 rounded-2xl font-bold text-lg transition-all duration-300 bg-emerald-600 text-white shadow-lg transform scale-105 border-l-4 border-emerald-300";
 
+            // Animación del panel de la ruta
             const card = document.getElementById('route-card');
             const title = document.getElementById('route-title');
             const content = document.getElementById('route-content');
@@ -476,6 +480,7 @@
             const chatBox = document.getElementById('chat-messages');
             const typingIndicator = document.getElementById('typing-indicator');
             
+            // Renderizar mensaje del usuario
             const userMsgHtml = `
                 <div class="flex gap-3 justify-end">
                     <div class="bg-emerald-600 text-white p-4 rounded-2xl rounded-tr-none shadow-md text-[15px] leading-relaxed max-w-[85%]">
@@ -487,15 +492,18 @@
             input.value = '';
             chatBox.scrollTop = chatBox.scrollHeight;
             
+            // Mostrar "escribiendo..."
             typingIndicator.classList.remove('hidden');
             chatBox.scrollTop = chatBox.scrollHeight;
 
+            // Procesamiento de lenguaje natural básico (RegEx)
             setTimeout(() => {
                 typingIndicator.classList.add('hidden');
                 
                 const lowerMsg = message.toLowerCase();
                 let reply = "";
 
+                // Condiciones de Respuesta (Intents)
                 if (/(empleo|trabajo|trabajar|vacante|currículum|curriculum|cv)/i.test(lowerMsg)) {
                     reply = "¡Qué bueno que quieras formar parte de nuestro equipo! 🤝 Por favor, envía tu currículum actualizado a nuestro correo oficial: <strong>atencionecopenalverca@gmail.com</strong> indicando tu área de experiencia.";
                 } 
@@ -524,9 +532,11 @@
                     reply = "¡Gracias a ti! Nuestro equipo de Eco Peñalver trabaja a diario para mantener nuestro municipio hermoso. ¡Estamos a la orden!";
                 }
                 else {
+                    // Respuesta por defecto
                     reply = "No estoy totalmente seguro de entender. 🤔 Sin embargo, si tienes alguna solicitud específica, queja o requerimiento, te invito a usar el <strong>Portal de Solicitudes</strong> al final de esta página, o escribirnos a <strong>atencionecopenalverca@gmail.com</strong>.";
                 }
 
+                // Renderizar respuesta del bot
                 const botMsgHtml = `
                     <div class="flex gap-3">
                         <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 mt-1"><i class="fa-solid fa-leaf"></i></div>
@@ -536,7 +546,7 @@
                     </div>`;
                 chatBox.insertAdjacentHTML('beforeend', botMsgHtml);
                 chatBox.scrollTop = chatBox.scrollHeight;
-            }, 1200); 
+            }, 1200); // Retraso para simular que está "escribiendo"
         }
     </script>
 </body>
