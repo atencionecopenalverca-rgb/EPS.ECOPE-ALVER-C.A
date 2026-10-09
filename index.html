@@ -28,19 +28,14 @@
             transform: translateY(0);
         }
 
-        /* Animaciones de Flotación Continua (Modernidad) */
+        /* Flotación Continua */
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
         }
-        .floating {
-            animation: float 4s ease-in-out infinite;
-        }
-        .floating-delayed {
-            animation: float 4s ease-in-out infinite;
-            animation-delay: 2s;
-        }
+        .floating { animation: float 4s ease-in-out infinite; }
+        .floating-delayed { animation: float 4s ease-in-out infinite; animation-delay: 2s; }
 
         /* Galería Interactiva */
         .gallery-item {
@@ -77,9 +72,7 @@
             color: white;
             transition: bottom 0.5s cubic-bezier(0.25, 1, 0.5, 1);
         }
-        .gallery-item:hover .gallery-text {
-            bottom: 0;
-        }
+        .gallery-item:hover .gallery-text { bottom: 0; }
 
         /* Iconos de Sugerencia Modernos */
         .action-icon-card {
@@ -94,18 +87,7 @@
             border-color: rgba(16, 185, 129, 0.5);
         }
 
-        /* Guía del Buen Ciudadano */
-        .guide-card {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform-origin: center;
-        }
-        .guide-card:hover {
-            transform: scale(1.05) translateY(-15px);
-            box-shadow: 0 25px 50px -12px rgba(16, 185, 129, 0.25);
-            border-color: #34d399;
-        }
-
-        /* Chatbot y Simulador */
+        /* Chatbot Modernizado */
         #chatbot-container {
             display: none;
             transform: translateY(20px) scale(0.95);
@@ -117,6 +99,41 @@
             transform: translateY(0) scale(1);
             opacity: 1;
         }
+        .chat-btn-quick {
+            display: block;
+            width: 100%;
+            text-align: left;
+            background: #ecfdf5;
+            border: 1px solid #10b981;
+            color: #047857;
+            padding: 8px 12px;
+            margin-top: 6px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .chat-btn-quick:hover {
+            background: #10b981;
+            color: white;
+        }
+        .typing-indicator span {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background-color: #10b981;
+            border-radius: 50%;
+            animation: typing 1.4s infinite ease-in-out both;
+        }
+        .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes typing {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        /* Simulador Sliders */
         input[type=range] {
             -webkit-appearance: none;
             width: 100%;
@@ -131,11 +148,9 @@
             cursor: pointer;
             margin-top: -8px;
             box-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
-            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 0.2s;
         }
-        input[type=range]::-webkit-slider-thumb:hover {
-            transform: scale(1.3);
-        }
+        input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.3); }
         input[type=range]::-webkit-slider-runnable-track {
             width: 100%;
             height: 8px;
@@ -195,12 +210,12 @@
         </div>
     </section>
 
-    <!-- NUEVA SECCIÓN REDISEÑADA: Quiénes Somos (Jannette Calista en Fondo blur) -->
+    <!-- SECCIÓN QUIÉNES SOMOS (Ajuste de Blur Reducido para Jannette Calista) -->
     <section id="quienes-somos" class="relative py-32 overflow-hidden flex items-center justify-center min-h-[80vh]">
-        <!-- Fondo Blur de la Alcaldesa -->
-        <div class="absolute inset-0 bg-cover bg-top bg-fixed transform scale-105" style="background-image: url('jannettecalista.jfif'); filter: blur(8px);"></div>
-        <!-- Capa de oscurecimiento moderno -->
-        <div class="absolute inset-0 bg-gradient-to-br from-stone-900/90 via-emerald-900/80 to-stone-900/90"></div>
+        <!-- Fondo Blur reducido (2px en lugar de 8px) para que se vea a la alcaldesa -->
+        <div class="absolute inset-0 bg-cover bg-center bg-fixed transform scale-105" style="background-image: url('jannettecalista.jfif'); filter: blur(2px);"></div>
+        <!-- Capa de oscurecimiento ajustada para equilibrio visual -->
+        <div class="absolute inset-0 bg-gradient-to-r from-stone-900/80 via-emerald-900/60 to-stone-900/80"></div>
 
         <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in-up">
             <h2 class="text-sm font-bold text-emerald-400 uppercase tracking-widest mb-3"><i class="fa-solid fa-leaf mr-2"></i>Nuestra Identidad</h2>
@@ -209,13 +224,13 @@
             </h3>
             
             <!-- Panel de Cristal (Glassmorphism) -->
-            <div class="bg-white/10 backdrop-blur-xl p-8 md:p-12 rounded-[2.5rem] border border-white/20 shadow-[0_30px_60px_rgba(0,0,0,0.4)] transform transition hover:-translate-y-2 duration-500">
+            <div class="bg-white/10 backdrop-blur-md p-8 md:p-12 rounded-[2.5rem] border border-white/20 shadow-[0_30px_60px_rgba(0,0,0,0.4)] transform transition hover:-translate-y-2 duration-500">
                 <p class="text-lg md:text-xl text-stone-100 leading-relaxed mb-8 font-light drop-shadow-md">
                     La <strong>Empresa de Producción Social Eco Peñalver, C.A. (EPS ECOPEÑALVER, C.A.)</strong> es una organización enfocada en el saneamiento ambiental, la gestión sostenible de desechos sólidos y la promoción de una cultura ecológica fundamentada en la política de las "6 R".
                 </p>
-                <div class="bg-gradient-to-r from-emerald-600/30 to-emerald-800/30 backdrop-blur-md p-8 rounded-3xl border-l-4 border-emerald-400 text-left relative overflow-hidden">
+                <div class="bg-gradient-to-r from-emerald-600/40 to-emerald-800/40 backdrop-blur-md p-8 rounded-3xl border-l-4 border-emerald-400 text-left relative overflow-hidden">
                     <div class="absolute -right-10 -top-10 text-emerald-500/20 text-9xl"><i class="fa-solid fa-quote-right"></i></div>
-                    <p class="relative z-10 text-white font-medium text-lg md:text-xl leading-relaxed">
+                    <p class="relative z-10 text-white font-medium text-lg md:text-xl leading-relaxed drop-shadow-sm">
                         Actualmente, bajo el impulso de la alcaldesa <strong>Jannette Calista</strong>, la institución concentra su capacidad operativa en la ejecución continua de 29 rutas semanales de recolección de aseo urbano, con el propósito de garantizar comunidades limpias, proteger el ecosistema y consolidar un municipio autosustentable.
                     </p>
                 </div>
@@ -223,7 +238,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN INTERACTIVA: Lo que tú puedes hacer (Galería + Iconos de Sugerencia) -->
+    <!-- SECCIÓN INTERACTIVA: Lo que tú puedes hacer -->
     <section id="acciones" class="py-24 bg-stone-900 text-white relative border-t-8 border-emerald-500">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 fade-in-up">
@@ -232,7 +247,7 @@
                 <div class="w-24 h-1.5 bg-gradient-to-r from-emerald-500 to-emerald-400 mx-auto mt-6 rounded-full"></div>
             </div>
 
-            <!-- Galería de 3 Imágenes con animaciones modernas -->
+            <!-- Galería Dinámica -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 fade-in-up">
                 <div class="gallery-item h-[400px] bg-stone-800">
                     <img src="recuperarespacios.jpg" alt="Recuperar Espacios">
@@ -259,12 +274,11 @@
                 </div>
             </div>
 
-            <!-- NUEVA PARTE: Iconos de sugerencias de cultura ambiental -->
+            <!-- Iconos de Sugerencias -->
             <div class="text-center mb-10 fade-in-up">
                 <h3 class="text-2xl font-bold text-stone-300">Pequeñas acciones, grandes cambios</h3>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 fade-in-up">
-                
                 <div class="action-icon-card p-6 rounded-2xl text-center floating">
                     <div class="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-[0_0_15px_rgba(16,185,129,0.5)] text-white text-2xl">
                         <i class="fa-solid fa-broom"></i>
@@ -296,7 +310,6 @@
                     <h4 class="font-bold text-lg mb-2 text-stone-100">Denuncia Vertederos</h4>
                     <p class="text-stone-400 text-sm">No permitas basureros clandestinos en tu comunidad. Repórtalos a las autoridades correspondientes.</p>
                 </div>
-
             </div>
         </div>
     </section>
@@ -335,7 +348,6 @@
 
                 <!-- Display Visual del Mapa -->
                 <div class="lg:w-2/3 map-bg rounded-[2rem] shadow-2xl relative overflow-hidden min-h-[400px] border-4 border-white flex items-center justify-center p-4 lg:p-8">
-                    
                     <div class="relative z-10 bg-white/90 backdrop-blur-xl p-6 md:p-8 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] max-w-lg w-full transform transition-all duration-500 border border-white" id="route-card">
                         <div class="flex items-center gap-4 mb-5 border-b border-stone-200 pb-4">
                             <div class="w-12 h-12 bg-emerald-500 text-white rounded-xl flex items-center justify-center text-xl shadow-lg transform -rotate-3">
@@ -353,53 +365,7 @@
         </div>
     </section>
 
-    <!-- Guía del Buen Ciudadano -->
-    <section class="py-24 bg-white relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <h2 class="text-4xl font-black text-emerald-900 mb-4 tracking-tight fade-in-up">Guía del Buen Ciudadano</h2>
-            <p class="text-stone-500 mb-16 max-w-2xl mx-auto text-lg fade-in-up">Reglas fundamentales para el manejo de desechos en nuestro municipio.</p>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Tarjeta 1 -->
-                <div class="guide-card bg-stone-50 p-8 rounded-3xl border border-stone-100 shadow-sm fade-in-up">
-                    <div class="w-20 h-20 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">
-                        <i class="fa-solid fa-clock"></i>
-                    </div>
-                    <h4 class="font-black text-xl text-stone-800 mb-3">Respeta los Horarios</h4>
-                    <p class="text-stone-500 text-sm leading-relaxed">Saca la basura únicamente en los días y turnos (mañana o noche) asignados a tu ruta.</p>
-                </div>
-                
-                <!-- Tarjeta 2 -->
-                <div class="guide-card bg-stone-50 p-8 rounded-3xl border border-stone-100 shadow-sm fade-in-up delay-100">
-                    <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">
-                        <i class="fa-solid fa-box-archive"></i>
-                    </div>
-                    <h4 class="font-black text-xl text-stone-800 mb-3">Cierra bien tus Bolsas</h4>
-                    <p class="text-stone-500 text-sm leading-relaxed">Asegúrate de que las bolsas estén bien amarradas para evitar derrames y malos olores en la calle.</p>
-                </div>
-
-                <!-- Tarjeta 3 -->
-                <div class="guide-card bg-stone-50 p-8 rounded-3xl border border-stone-100 shadow-sm fade-in-up delay-200">
-                    <div class="w-20 h-20 bg-red-100 text-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">
-                        <i class="fa-solid fa-ban"></i>
-                    </div>
-                    <h4 class="font-black text-xl text-stone-800 mb-3">No botes Escombros</h4>
-                    <p class="text-stone-500 text-sm leading-relaxed">Evita arrojar ramas en avenidas. Utiliza el portal para solicitar recolecciones especiales.</p>
-                </div>
-
-                <!-- Tarjeta 4 -->
-                <div class="guide-card bg-stone-50 p-8 rounded-3xl border border-stone-100 shadow-sm fade-in-up delay-300">
-                    <div class="w-20 h-20 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">
-                        <i class="fa-solid fa-recycle"></i>
-                    </div>
-                    <h4 class="font-black text-xl text-stone-800 mb-3">Aplica las 6 R</h4>
-                    <p class="text-stone-500 text-sm leading-relaxed">Reducir, Reutilizar, Reciclar, Recuperar, Reeducar y Reinsertar. La limpieza depende de todos.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN INTERACTIVA RENOVADA: Simulador de Impacto Ambiental -->
+    <!-- Simulador de Impacto Ambiental -->
     <section id="simulador" class="py-24 bg-gradient-to-b from-stone-100 to-emerald-50 border-t border-emerald-200">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 fade-in-up">
@@ -409,11 +375,9 @@
             </div>
 
             <div class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl border border-white fade-in-up flex flex-col lg:flex-row gap-16 items-center">
-                
-                <!-- Controles Interactivos Renovados -->
+                <!-- Controles -->
                 <div class="w-full lg:w-1/2 space-y-10">
-                    
-                    <!-- Control 1: Reciclaje -->
+                    <!-- Control 1 -->
                     <div class="bg-stone-50 p-6 rounded-2xl border border-stone-200 transition-transform hover:-translate-y-1 duration-300">
                         <h3 class="text-lg font-bold text-stone-700 mb-4 flex items-center gap-2">
                             <span class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center"><i class="fa-solid fa-box-archive"></i></span>
@@ -426,8 +390,7 @@
                         </div>
                         <div class="text-right text-emerald-600 font-black text-xl"><span id="val-recycle">10</span></div>
                     </div>
-
-                    <!-- Control 2: Botellas de Plástico -->
+                    <!-- Control 2 -->
                     <div class="bg-stone-50 p-6 rounded-2xl border border-stone-200 transition-transform hover:-translate-y-1 duration-300">
                         <h3 class="text-lg font-bold text-stone-700 mb-4 flex items-center gap-2">
                             <span class="w-8 h-8 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center"><i class="fa-solid fa-bottle-water"></i></span>
@@ -440,8 +403,7 @@
                         </div>
                         <div class="text-right text-blue-600 font-black text-xl"><span id="val-bottles">15</span></div>
                     </div>
-
-                    <!-- Control 3: Bolsas de Tela -->
+                    <!-- Control 3 -->
                     <div class="bg-stone-50 p-6 rounded-2xl border border-stone-200 transition-transform hover:-translate-y-1 duration-300">
                         <h3 class="text-lg font-bold text-stone-700 mb-4 flex items-center gap-2">
                             <span class="w-8 h-8 rounded-lg bg-amber-100 text-amber-600 flex items-center justify-center"><i class="fa-solid fa-bag-shopping"></i></span>
@@ -454,12 +416,10 @@
                         </div>
                         <div class="text-right text-amber-600 font-black text-xl"><span id="val-bags">5</span></div>
                     </div>
-
                 </div>
 
-                <!-- Resultados y Puntaje -->
+                <!-- Resultados -->
                 <div class="w-full lg:w-1/2">
-                    
                     <div class="bg-gradient-to-br from-emerald-600 to-emerald-400 p-8 rounded-[2rem] text-center text-white mb-8 shadow-[0_20px_40px_rgba(16,185,129,0.4)] transform transition hover:scale-105 duration-500">
                         <h3 class="text-emerald-100 font-bold uppercase tracking-widest text-sm mb-2">Tu Nivel de Cultura Ecológica</h3>
                         <div class="text-7xl font-black mb-2 drop-shadow-md" id="eco-score">45</div>
@@ -479,11 +439,10 @@
                         </div>
                         <div class="bg-green-50 p-5 rounded-2xl border border-green-100 text-center col-span-2 transition hover:shadow-md">
                             <i class="fa-solid fa-cloud text-2xl text-green-500 mb-2"></i>
-                            <h4 class="text-stone-500 text-xs font-bold uppercase tracking-wide mb-1">Plástico y CO2 evitado en el municipio</h4>
+                            <h4 class="text-stone-500 text-xs font-bold uppercase tracking-wide mb-1">Plástico y CO2 evitado</h4>
                             <p class="text-3xl font-black text-green-800"><span id="co2-saved">65</span> <span class="text-base text-green-600 font-medium">kg no generados</span></p>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -491,6 +450,9 @@
 
     <!-- Portal de Solicitudes (Contacto) -->
     <section id="contacto" class="py-24 bg-stone-900 text-white relative overflow-hidden border-t-8 border-emerald-500">
+        <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-emerald-600/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-96 h-96 bg-emerald-900/40 rounded-full blur-3xl"></div>
+        
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 fade-in-up">
             <div class="text-center mb-12">
                 <h2 class="text-4xl font-extrabold text-emerald-400 tracking-tight">Portal de Solicitudes Ciudadanas</h2>
@@ -555,7 +517,6 @@
     <footer class="bg-white border-t border-stone-200 pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center gap-10">
-                
                 <div class="flex items-center gap-4">
                     <img src="logoecopeñalver.jpg" alt="Logo Eco Peñalver" class="h-16 object-contain bg-transparent">
                     <div class="text-left">
@@ -580,59 +541,64 @@
                     </div>
                     <img src="logoalcaldia.jpg" alt="Logo Alcaldía" class="h-16 object-contain bg-transparent">
                 </div>
-
             </div>
             <div class="text-center mt-16 pt-8 border-t border-stone-200 flex flex-col sm:flex-row justify-between items-center text-stone-500 text-sm">
                 <span>&copy; 2026 EPS Eco Peñalver C.A. Todos los derechos reservados.</span>
-                <span class="mt-2 sm:mt-0 font-medium">Gestión Jannette Calista</span>
+                <span class="mt-2 sm:mt-0 font-medium">Gestión Jannette Calista | Presidencia Luis Semeco</span>
             </div>
         </div>
     </footer>
 
-    <!-- Botón Flotante Chatbot -->
-    <button onclick="toggleChat()" class="fixed bottom-6 right-6 bg-gradient-to-r from-emerald-600 to-emerald-500 text-white w-16 h-16 rounded-full shadow-[0_10px_25px_rgba(16,185,129,0.5)] flex items-center justify-center text-2xl hover:shadow-[0_10px_35px_rgba(16,185,129,0.7)] transition-all duration-300 transform hover:scale-110 z-50 group">
+    <!-- Botón Flotante Chatbot (Renovado Icono Hoja/Bot) -->
+    <button onclick="toggleChat()" class="fixed bottom-6 right-6 bg-gradient-to-r from-emerald-600 to-emerald-400 text-white w-16 h-16 rounded-full shadow-[0_10px_25px_rgba(16,185,129,0.5)] flex items-center justify-center text-2xl hover:shadow-[0_10px_35px_rgba(16,185,129,0.8)] transition-all duration-300 transform hover:scale-110 z-50 group border-2 border-white/50">
         <i class="fa-solid fa-robot group-hover:animate-bounce"></i>
     </button>
 
-    <!-- Ventana del Chatbot Avanzado -->
-    <div id="chatbot-container" class="fixed bottom-28 right-6 w-[350px] md:w-[400px] bg-white rounded-3xl shadow-2xl border border-stone-200 flex flex-col overflow-hidden z-50 h-[550px]">
-        <div class="bg-gradient-to-r from-emerald-700 to-emerald-500 text-white p-5 flex justify-between items-center shadow-md z-10">
+    <!-- Ventana del Chatbot Avanzado e Interactivo -->
+    <div id="chatbot-container" class="fixed bottom-28 right-4 md:right-6 w-[340px] bg-white rounded-3xl shadow-2xl border border-stone-200 flex flex-col overflow-hidden z-50 h-[500px]">
+        <!-- Cabecera Bot -->
+        <div class="bg-gradient-to-r from-emerald-600 to-emerald-500 text-white p-4 flex justify-between items-center shadow-sm z-10 border-b border-emerald-400/30">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                    <i class="fa-solid fa-robot text-xl"></i>
+                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-inner">
+                    <i class="fa-solid fa-leaf text-emerald-600 text-lg"></i>
                 </div>
                 <div>
-                    <h3 class="font-bold text-lg leading-tight">EcoBot Peñalver</h3>
-                    <span class="text-xs text-emerald-100 flex items-center gap-1"><span class="w-2 h-2 bg-green-400 rounded-full inline-block animate-pulse"></span> En línea</span>
+                    <h3 class="font-bold text-base leading-tight">EcoBot Peñalver</h3>
+                    <span class="text-xs text-emerald-50 flex items-center gap-1 font-medium"><span class="w-2 h-2 bg-green-300 rounded-full inline-block animate-pulse"></span> En línea</span>
                 </div>
             </div>
-            <button onclick="toggleChat()" class="text-white hover:text-stone-200 transition transform hover:rotate-90"><i class="fa-solid fa-xmark text-2xl"></i></button>
+            <button onclick="toggleChat()" class="text-white hover:text-emerald-100 transition transform hover:rotate-90"><i class="fa-solid fa-xmark text-xl"></i></button>
         </div>
         
-        <div id="chat-messages" class="flex-1 p-5 overflow-y-auto bg-stone-50/50 flex flex-col gap-4 scroll-smooth">
-            <div class="flex gap-3">
-                <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 mt-1"><i class="fa-solid fa-leaf"></i></div>
-                <div class="bg-white border border-stone-100 shadow-sm text-stone-700 p-4 rounded-2xl rounded-tl-none text-[15px] leading-relaxed">
-                    ¡Hola! 👋 Soy EcoBot, el asistente inteligente de EPS Eco Peñalver. <br><br>
-                    Puedes preguntarme sobre:<br>
-                    📍 Ubicación de la oficina<br>
-                    🗓️ Días de rutas de aseo<br>
-                    💼 Ofertas de empleo<br>
-                    🚧 Reportes y escombros<br>
-                    ¿En qué te ayudo hoy?
+        <!-- Área de Mensajes -->
+        <div id="chat-messages" class="flex-1 p-4 overflow-y-auto bg-stone-50 flex flex-col gap-4 scroll-smooth">
+            <!-- Mensaje Inicial con Botones Inteligentes -->
+            <div class="flex gap-2">
+                <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 mt-1 shadow-sm"><i class="fa-solid fa-robot text-sm"></i></div>
+                <div class="bg-white border border-stone-200 shadow-sm text-stone-700 p-4 rounded-2xl rounded-tl-none text-[14px] leading-relaxed w-full">
+                    ¡Hola! 👋 Soy EcoBot. ¿En qué te puedo ayudar hoy? Selecciona una opción o escríbeme:
+                    <div class="mt-3">
+                        <button onclick="quickReply('¿Cuándo pasa el camión por mi sector?')" class="chat-btn-quick"><i class="fa-solid fa-truck text-emerald-500 mr-1"></i> Rutas de recolección</button>
+                        <button onclick="quickReply('¿Cómo pago o declaro el aseo urbano?')" class="chat-btn-quick"><i class="fa-solid fa-file-invoice text-emerald-500 mr-1"></i> Pago de Aseo (SAT)</button>
+                        <button onclick="quickReply('Quiero reportar escombros o fallas')" class="chat-btn-quick"><i class="fa-solid fa-triangle-exclamation text-emerald-500 mr-1"></i> Reportar escombros</button>
+                        <button onclick="quickReply('¿Quién es el presidente de Ecopeñalver?')" class="chat-btn-quick"><i class="fa-solid fa-users text-emerald-500 mr-1"></i> Directiva de la empresa</button>
+                        <button onclick="quickReply('Eventos y limpieza de playas')" class="chat-btn-quick"><i class="fa-solid fa-umbrella-beach text-emerald-500 mr-1"></i> Limpieza de playas</button>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div id="typing-indicator" class="hidden px-14 py-2 bg-stone-50/50">
-            <div class="bg-white border border-stone-100 shadow-sm p-3 rounded-2xl rounded-tl-none inline-block">
+        <!-- Indicador de escritura -->
+        <div id="typing-indicator" class="hidden px-12 py-2 bg-stone-50">
+            <div class="bg-white border border-stone-200 shadow-sm p-3 rounded-2xl rounded-tl-none inline-block">
                 <div class="typing-indicator flex gap-1"><span></span><span></span><span></span></div>
             </div>
         </div>
 
-        <div class="p-4 bg-white border-t border-stone-100 flex gap-2">
-            <input type="text" id="chat-input" placeholder="Escribe tu pregunta aquí..." class="flex-1 px-4 py-3 bg-stone-100 border-none rounded-xl text-[15px] focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition" onkeypress="if(event.key === 'Enter') sendMessage()">
-            <button onclick="sendMessage()" class="bg-emerald-600 text-white w-12 h-12 rounded-xl hover:bg-emerald-700 transition shadow-md flex items-center justify-center transform hover:scale-105">
+        <!-- Input -->
+        <div class="p-3 bg-white border-t border-stone-200 flex gap-2">
+            <input type="text" id="chat-input" placeholder="Escribe aquí..." class="flex-1 px-4 py-2.5 bg-stone-100 border border-stone-200 rounded-xl text-[14px] focus:outline-none focus:ring-2 focus:ring-emerald-500 transition" onkeypress="if(event.key === 'Enter') sendMessage(this.value)">
+            <button onclick="sendMessage(document.getElementById('chat-input').value)" class="bg-emerald-600 text-white w-12 h-11 rounded-xl hover:bg-emerald-500 transition shadow-md flex items-center justify-center">
                 <i class="fa-solid fa-paper-plane"></i>
             </button>
         </div>
@@ -653,20 +619,15 @@
             calculateImpact();
         });
 
-        // NUEVA LÓGICA DEL SIMULADOR: Botellas, bolsas reutilizables y bolsas de reciclaje
+        // Simulador de Impacto
         function calculateImpact() {
-            const bags = parseFloat(document.getElementById('sim-recycle').value); // Bolsas de reciclaje / mes
-            const bottles = parseFloat(document.getElementById('sim-bottles').value); // Botellas PET / semana
-            const clothBags = parseFloat(document.getElementById('sim-bags').value); // Bolsas de tela usadas / mes
+            const bags = parseFloat(document.getElementById('sim-recycle').value); 
+            const bottles = parseFloat(document.getElementById('sim-bottles').value); 
+            const clothBags = parseFloat(document.getElementById('sim-bags').value); 
             
             document.getElementById('val-recycle').innerText = bags;
             document.getElementById('val-bottles').innerText = bottles;
             document.getElementById('val-bags').innerText = clothBags;
-            
-            // Cálculos ambientales (Estimaciones didácticas de cultura ambiental)
-            // 1 bolsa de reciclaje ~ 15L agua, 3 kWh
-            // 1 botella PET (evitada/reciclada a la semana * 4 al mes) ~ 0.5L agua c/u, 0.1kg CO2 c/u
-            // 1 bolsa plástica evitada (por usar tela) ~ 1L agua, 0.05kg CO2
             
             const water = Math.round((bags * 15) + (bottles * 4 * 0.5) + (clothBags * 1)); 
             const energy = Math.round((bags * 3) + (bottles * 4 * 0.05)); 
@@ -717,44 +678,75 @@
             }, 300);
         }
 
+        // Lógica del Chatbot Avanzado
         function toggleChat() {
-            const chat = document.getElementById('chatbot-container');
-            chat.classList.toggle('show');
+            document.getElementById('chatbot-container').classList.toggle('show');
         }
 
-        function sendMessage() {
-            const input = document.getElementById('chat-input');
-            const message = input.value.trim();
+        function quickReply(text) {
+            document.getElementById('chat-input').value = text;
+            sendMessage(text);
+        }
+
+        function sendMessage(msgText) {
+            const message = msgText.trim();
             if(!message) return;
 
             const chatBox = document.getElementById('chat-messages');
             const typingIndicator = document.getElementById('typing-indicator');
+            const inputField = document.getElementById('chat-input');
             
-            const userMsgHtml = `<div class="flex gap-3 justify-end"><div class="bg-emerald-600 text-white p-4 rounded-2xl rounded-tr-none shadow-md text-[15px] leading-relaxed max-w-[85%]">${message}</div></div>`;
+            // User Message HTML
+            const userMsgHtml = `<div class="flex gap-2 justify-end"><div class="bg-emerald-600 text-white p-3 rounded-2xl rounded-tr-none shadow-sm text-[14px] leading-relaxed max-w-[85%]">${message}</div></div>`;
             chatBox.insertAdjacentHTML('beforeend', userMsgHtml);
             
-            input.value = '';
+            inputField.value = '';
             chatBox.scrollTop = chatBox.scrollHeight;
             typingIndicator.classList.remove('hidden');
             chatBox.scrollTop = chatBox.scrollHeight;
 
+            // Procesamiento Bot Base de Datos
             setTimeout(() => {
                 typingIndicator.classList.add('hidden');
                 const lowerMsg = message.toLowerCase();
-                let reply = "No estoy totalmente seguro de entender. 🤔 Sin embargo, si tienes alguna solicitud específica, queja o requerimiento, te invito a usar el <strong>Portal de Solicitudes</strong> al final de esta página.";
+                let reply = "No estoy seguro de entender 🤔. Si tienes un reporte o solicitud, puedes usar el <a href='#contacto' onclick='toggleChat()' class='text-emerald-600 font-bold underline'>Portal de Solicitudes</a> al final de esta página.";
 
-                if (/(empleo|trabajo|trabajar|vacante|currículum|curriculum|cv)/i.test(lowerMsg)) reply = "¡Qué bueno que quieras formar parte de nuestro equipo! 🤝 Por favor, envía tu currículum actualizado a nuestro correo oficial: <strong>atencionecopenalverca@gmail.com</strong> indicando tu área de experiencia.";
-                else if (/(dónde|donde|ubicación|ubicacion|oficina|dirección|direccion|llegar)/i.test(lowerMsg)) reply = "📍 Nuestra sede administrativa está ubicada en la <strong>Calle Juan Bolívar, Puerto Píritu 6022, Anzoátegui</strong>, justo frente a la Alcaldía del Municipio Fernando de Peñalver.";
-                else if (/(horario|hora|abiertos|abren|cierran)/i.test(lowerMsg)) reply = "🕒 Nuestro horario de atención en oficinas administrativas es de <strong>Lunes a Viernes, de 8:00 AM a 3:00 PM</strong>.";
-                else if (/(ruta|basura|dias|días|camión|camion|pasa|recolección)/i.test(lowerMsg)) reply = "🚚 Contamos con 29 rutas semanales. Puedes consultar qué día exacto pasa el camión por tu sector interactuando con el <strong>Mapa de Rutas</strong> que está más arriba en esta página web.";
-                else if (/(queja|escombros|ramas|árbol|animal|muerto|reporte|falla|no pasó)/i.test(lowerMsg)) reply = "⚠️ Para solicitar la recolección de escombros, ramas, o reportar alguna falla en el servicio, por favor baja a la sección <strong>'Portal de Solicitudes Ciudadanas'</strong> y llena el formulario. ¡Tu reporte llegará directamente a nuestro correo!";
-                else if (/(alcaldesa|jannette|calista|alcalde)/i.test(lowerMsg)) reply = "Actualmente, bajo la dirección de la Alcaldesa <strong>Jannette Calista</strong>, EPS Eco Peñalver avanza enfocada en mantener al 100% el servicio de recolección de aseo urbano en todo el municipio.";
-                else if (/(hola|buenas|saludos|buenos dias|buenas tardes)/i.test(lowerMsg)) reply = "¡Hola! Qué gusto saludarte. ¿En qué puedo ayudarte hoy?";
+                if (/(empleo|trabajo|trabajar|vacante|currículum|cv)/i.test(lowerMsg)) {
+                    reply = "¡Qué bueno que quieras unirte! 🤝 Envía tu currículum a nuestro correo oficial: <strong>atencionecopenalverca@gmail.com</strong> indicando tu área de experiencia.";
+                } 
+                else if (/(dónde|donde|ubicación|oficina|dirección|llegar)/i.test(lowerMsg)) {
+                    reply = "📍 Nuestra Sede Administrativa Oficial está en la <strong>Calle Juan Bolívar, Puerto Píritu 6022, Anzoátegui</strong>, frente a la Alcaldía del Municipio Fernando de Peñalver.";
+                }
+                else if (/(horario|hora|abiertos|abren|cierran)/i.test(lowerMsg)) {
+                    reply = "🕒 Atendemos en oficinas administrativas de <strong>Lunes a Viernes, de 8:00 AM a 3:00 PM</strong>.";
+                }
+                else if (/(ruta|basura|dias|días|camión|recolección|pasa)/i.test(lowerMsg)) {
+                    reply = "🚚 Contamos con 29 rutas semanales. Te invito a usar nuestro <a href='#rutas' onclick='toggleChat()' class='text-emerald-600 font-bold underline'>Mapa Interactivo de Rutas</a> justo arriba en esta página para ver tu sector.";
+                }
+                else if (/(queja|escombros|ramas|animal|muerto|reporte|falla|no pasó)/i.test(lowerMsg)) {
+                    reply = "⚠️ Para recolección de escombros o fallas de servicio, por favor llena el formulario en el <a href='#contacto' onclick='toggleChat()' class='text-emerald-600 font-bold underline'>Portal de Solicitudes</a>. ¡Llega directo a nuestro equipo!";
+                }
+                else if (/(alcaldesa|jannette|calista|alcaldía|alcalde)/i.test(lowerMsg)) {
+                    reply = "La alcaldesa <strong>Jannette Calista</strong> lidera actualmente el impulso del municipio. Bajo su gestión, Ecopeñalver concentra su capacidad en optimizar el aseo urbano local.";
+                }
+                else if (/(presidente|gerente|jefe|director|luis|semeco)/i.test(lowerMsg)) {
+                    reply = "El <strong>Sr. Luis Semeco</strong> es el Presidente actual y máxima autoridad encargada de la dirección general y toma de decisiones estratégicas de la EPS Eco Peñalver C.A.";
+                }
+                else if (/(pago|pagar|sat|impuesto|tasa|cobro|declarar|aseo)/i.test(lowerMsg)) {
+                    reply = "💰 La facturación y cobro de la tasa de aseo urbano se articula junto a la alcaldía. Puedes acercarte a nuestra oficina o directamente al <strong>SAT Peñalver</strong> para procesar tus pagos y estar al día.";
+                }
+                else if (/(playa|playas|limpieza|eventos|iutepal|jornada)/i.test(lowerMsg)) {
+                    reply = "🌊 ¡Nos importa nuestro ecosistema costero! Ecopeñalver organiza y coordina jornadas especiales como la <strong>Limpieza Anual de la Playa</strong> en convenios con instituciones aliadas como el IUTEPAL.";
+                }
+                else if (/(hola|buenas|saludos|buenos dias|buenas tardes)/i.test(lowerMsg)) {
+                    reply = "¡Hola! Qué gusto saludarte 🌿. ¿En qué te ayudo hoy?";
+                }
 
-                const botMsgHtml = `<div class="flex gap-3"><div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 mt-1"><i class="fa-solid fa-leaf"></i></div><div class="bg-white border border-stone-100 shadow-sm text-stone-700 p-4 rounded-2xl rounded-tl-none text-[15px] leading-relaxed max-w-[85%]">${reply}</div></div>`;
+                // Bot Message HTML
+                const botMsgHtml = `<div class="flex gap-2"><div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 mt-1 shadow-sm"><i class="fa-solid fa-robot text-sm"></i></div><div class="bg-white border border-stone-200 shadow-sm text-stone-700 p-3.5 rounded-2xl rounded-tl-none text-[14px] leading-relaxed max-w-[85%]">${reply}</div></div>`;
                 chatBox.insertAdjacentHTML('beforeend', botMsgHtml);
                 chatBox.scrollTop = chatBox.scrollHeight;
-            }, 1200); 
+            }, 1000); 
         }
     </script>
 </body>
